@@ -41,15 +41,10 @@ public class InterfaceMenu extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabelUsuario = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuInicio = new javax.swing.JMenu();
         jMenuProdutos = new javax.swing.JMenu();
-        jMenuItemProdutosCadastro = new javax.swing.JMenuItem();
-        jMenuProdutosAlterar = new javax.swing.JMenuItem();
-        jMenuProdutosExcluir = new javax.swing.JMenuItem();
-        jMenuProdutosPesquisar = new javax.swing.JMenuItem();
         jMenuClientes = new javax.swing.JMenu();
         jMenuClientesCadastro = new javax.swing.JMenuItem();
         jMenuClientesAlterar = new javax.swing.JMenuItem();
@@ -141,8 +136,6 @@ public class InterfaceMenu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("ATALHOS");
 
-        jLabel8.setText("Bem-Vindo ");
-
         jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -165,24 +158,11 @@ public class InterfaceMenu extends javax.swing.JFrame {
                 jMenuProdutosStateChanged(evt);
             }
         });
-
-        jMenuItemProdutosCadastro.setText("Cadastrar");
-        jMenuProdutos.add(jMenuItemProdutosCadastro);
-
-        jMenuProdutosAlterar.setText("Alterar");
-        jMenuProdutos.add(jMenuProdutosAlterar);
-
-        jMenuProdutosExcluir.setText("Excluir");
-        jMenuProdutos.add(jMenuProdutosExcluir);
-
-        jMenuProdutosPesquisar.setText("Pesquisar");
-        jMenuProdutosPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuProdutosPesquisarActionPerformed(evt);
+        jMenuProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuProdutosMouseClicked(evt);
             }
         });
-        jMenuProdutos.add(jMenuProdutosPesquisar);
-
         jMenuBar1.add(jMenuProdutos);
 
         jMenuClientes.setText("Clientes");
@@ -283,9 +263,7 @@ public class InterfaceMenu extends javax.swing.JFrame {
                             .addComponent(jTextField3)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(75, 75, 75)
                         .addComponent(jLabelUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)))
@@ -330,17 +308,12 @@ public class InterfaceMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel8)
                     .addComponent(jLabelUsuario))
                 .addGap(11, 11, 11))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuProdutosPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuProdutosPesquisarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuProdutosPesquisarActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
@@ -373,6 +346,12 @@ public class InterfaceMenu extends javax.swing.JFrame {
     private void jMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuInicioActionPerformed
 
     }//GEN-LAST:event_jMenuInicioActionPerformed
+
+    private void jMenuProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuProdutosMouseClicked
+        InterfaceProdutos iLogoProdutos = new InterfaceProdutos();
+        this.dispose();
+        iLogoProdutos.setVisible(true);
+    }//GEN-LAST:event_jMenuProdutosMouseClicked
 
 
     /**
@@ -423,7 +402,6 @@ public class InterfaceMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
@@ -442,11 +420,7 @@ public class InterfaceMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItemProdutosCadastro;
     private javax.swing.JMenu jMenuProdutos;
-    private javax.swing.JMenuItem jMenuProdutosAlterar;
-    private javax.swing.JMenuItem jMenuProdutosExcluir;
-    private javax.swing.JMenuItem jMenuProdutosPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

@@ -33,28 +33,22 @@ public class InterfaceProdutos extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuInicio = new javax.swing.JMenu();
+        jMenuProdutos = new javax.swing.JMenu();
+        jMenuClientes = new javax.swing.JMenu();
+        jMenuClientesCadastro = new javax.swing.JMenuItem();
+        jMenuClientesAlterar = new javax.swing.JMenuItem();
+        jMenuClientesExcluir = new javax.swing.JMenuItem();
+        jMenuClientesPesquisar = new javax.swing.JMenuItem();
+        jMenuClientesExtrato = new javax.swing.JMenuItem();
+        jMenuConfig = new javax.swing.JMenu();
+        jMenuConfigCadastroUsuario = new javax.swing.JMenuItem();
+        jMenuConfigEditarUsuario = new javax.swing.JMenuItem();
+        jMenuConfigFonte = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuFinalizarSessao = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,8 +71,12 @@ public class InterfaceProdutos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(30);
+        }
 
-        jButton1.setText("Editar");
+        jButton1.setText("Alterar");
 
         jButton2.setText("Excluir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,76 +87,68 @@ public class InterfaceProdutos extends javax.swing.JFrame {
 
         jButton3.setText("Pesquisar");
 
-        jButton4.setText("Incluir");
+        jButton4.setText("Cadastrar");
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenu1.setText("Inicio");
-
-        jMenuItem15.setText("Inicio");
-        jMenu1.add(jMenuItem15);
-
-        jMenuItem16.setText("Vendas");
-        jMenu1.add(jMenuItem16);
-
-        jMenuItem6.setText("Finalizar Sessão");
-        jMenu1.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Produtos");
-
-        jMenuItem2.setText("Cadastrar");
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem3.setText("Alterar");
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setText("Excluir");
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Pesquisar");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+        jMenuInicio.setText("Inicio");
+        jMenuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuInicioMouseClicked(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        jMenuInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuInicioActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenuInicio);
 
-        jMenuBar1.add(jMenu2);
+        jMenuProdutos.setText("Produtos");
+        jMenuProdutos.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jMenuProdutosStateChanged(evt);
+            }
+        });
+        jMenuProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuProdutosMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuProdutos);
 
-        jMenu3.setText("Clientes");
+        jMenuClientes.setText("Clientes");
 
-        jMenuItem8.setText("Cadastrar");
-        jMenu3.add(jMenuItem8);
+        jMenuClientesCadastro.setText("Cadastrar");
+        jMenuClientes.add(jMenuClientesCadastro);
 
-        jMenuItem9.setText("Alterar");
-        jMenu3.add(jMenuItem9);
+        jMenuClientesAlterar.setText("Alterar");
+        jMenuClientes.add(jMenuClientesAlterar);
 
-        jMenuItem10.setText("Excluir ");
-        jMenu3.add(jMenuItem10);
+        jMenuClientesExcluir.setText("Excluir ");
+        jMenuClientes.add(jMenuClientesExcluir);
 
-        jMenuItem11.setText("Pesquisar");
-        jMenu3.add(jMenuItem11);
+        jMenuClientesPesquisar.setText("Pesquisar");
+        jMenuClientes.add(jMenuClientesPesquisar);
 
-        jMenuItem12.setText("Extrato Mensal");
-        jMenu3.add(jMenuItem12);
+        jMenuClientesExtrato.setText("Extrato Mensal");
+        jMenuClientes.add(jMenuClientesExtrato);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuClientes);
 
-        jMenu5.setText("Configurações");
+        jMenuConfig.setText("Configurações");
 
-        jMenuItem7.setText("Cadastrar Usuario");
-        jMenu5.add(jMenuItem7);
+        jMenuConfigCadastroUsuario.setText("Cadastrar Usuario");
+        jMenuConfig.add(jMenuConfigCadastroUsuario);
 
-        jMenuItem17.setText("Editar Usuario");
-        jMenu5.add(jMenuItem17);
+        jMenuConfigEditarUsuario.setText("Editar Usuario");
+        jMenuConfig.add(jMenuConfigEditarUsuario);
 
-        jMenuItem18.setText("Fonte");
-        jMenu5.add(jMenuItem18);
+        jMenuConfigFonte.setText("Fonte");
+        jMenuConfig.add(jMenuConfigFonte);
 
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(jMenuConfig);
 
         jMenu4.setText("Informações");
 
@@ -174,6 +164,14 @@ public class InterfaceProdutos extends javax.swing.JFrame {
         jMenu4.add(jMenuItem14);
 
         jMenuBar1.add(jMenu4);
+
+        jMenuFinalizarSessao.setText("Finalizar Sessão");
+        jMenuFinalizarSessao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuFinalizarSessaoMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenuFinalizarSessao);
 
         setJMenuBar(jMenuBar1);
 
@@ -199,31 +197,53 @@ public class InterfaceProdutos extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuInicioMouseClicked
+        InterfaceMenu iMenu = new InterfaceMenu();
+        this.dispose();
+        iMenu.setVisible(true);
+    }//GEN-LAST:event_jMenuInicioMouseClicked
+
+    private void jMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuInicioActionPerformed
+
+    }//GEN-LAST:event_jMenuInicioActionPerformed
+
+    private void jMenuProdutosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMenuProdutosStateChanged
+
+    }//GEN-LAST:event_jMenuProdutosStateChanged
+
+    private void jMenuProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuProdutosMouseClicked
+        InterfaceProdutos iLogoProdutos = new InterfaceProdutos();
+        this.dispose();
+        iLogoProdutos.setVisible(true);
+    }//GEN-LAST:event_jMenuProdutosMouseClicked
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jMenuFinalizarSessaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuFinalizarSessaoMouseClicked
+        InterfaceLogin iLogoOff = new InterfaceLogin();
+        this.dispose();
+        iLogoOff.setVisible(true);
+    }//GEN-LAST:event_jMenuFinalizarSessaoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -265,29 +285,23 @@ public class InterfaceProdutos extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenu jMenuClientes;
+    private javax.swing.JMenuItem jMenuClientesAlterar;
+    private javax.swing.JMenuItem jMenuClientesCadastro;
+    private javax.swing.JMenuItem jMenuClientesExcluir;
+    private javax.swing.JMenuItem jMenuClientesExtrato;
+    private javax.swing.JMenuItem jMenuClientesPesquisar;
+    private javax.swing.JMenu jMenuConfig;
+    private javax.swing.JMenuItem jMenuConfigCadastroUsuario;
+    private javax.swing.JMenuItem jMenuConfigEditarUsuario;
+    private javax.swing.JMenuItem jMenuConfigFonte;
+    private javax.swing.JMenu jMenuFinalizarSessao;
+    private javax.swing.JMenu jMenuInicio;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenu jMenuProdutos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
